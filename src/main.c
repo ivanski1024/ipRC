@@ -3,36 +3,39 @@
 
 int main()
 {
-
-	char* input = NULL;
-
 	size_t size;
-	printf("Welcome to ipRC!\n");
 
-	int nickEntered = 0;
-	printf("Enter your nickname: \n");
-	while(nickEntered == 0)
+	printf("%s\n", "Welcome to ipRC");
+
+	char* nick = NULL;
+	bool nickEntered = false;
+	printf("%s", "Enter your nickname: ");
+
+	while(!nickEntered)
 	{
-		getline(&input, &size, stdin);
-
-		printf("Your nikcname: "); 
-		printf("%s\n", input);
-		int n_len = strlen(input);
-		if(n_len == 1) 
-		{
-			printf("Please, enter your nickname!");
-		}
-		else
-		{
-			nickEntered = 1;
-		}
-
-	 	printf("Your nick length: %d\n", n_len);
+		getline(&nick, &size, stdin);
+		strlen(nick) == 1 ? printf("Please, enter your nickname: ") : nickEntered = true;
 	}
-	printf("hello!;");
-//	while(getline(&nick, &size, stdin)) {
-//		printf("Please enter your nick! \n");
-//	}
+
+	char* server = NULL;
+	bool serverEntered = false;
+	printf("%s", "Enter server url: ");
+	while(!serverEntered)
+	{
+		getline(&server, &size, stdin);
+		strlen(server) == 1 ? printf("Please, enter server url: ") : serverEntered = true;
+	}
+
+	char* channel = NULL;
+	bool channelEntered = false;
+	printf("%s", "Enter channel name: ");
+	while(!channelEntered) 
+	{
+		getline(&channel, &size, stdin);
+		strlen(channel) == 1 ? printf("Pleasa, enter channel name: ") : channelEntered = true;
+	}
+
+
 	printf("Goodbye!");
 	return 0;
 }
